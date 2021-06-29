@@ -19,10 +19,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//routing baru
-Route::get('mahasiswa', 'MahasiswaController@index');
+//routing mahasiswa
+Route::get('mahasiswa', 'MahasiswaController@index')->name('mahasiswa');
+Route::get('tambah-mahasiswa', 'MahasiswaController@create')->name('tambah.mahasiswa');
+Route::post('simpan-mahasiswa', 'MahasiswaController@store')->name('simpan.mahasiswa');
 
-Route::get('/mahasiswa_create', 'MahasiswaController@create')->name('mahasiswa_create');
+Route::get('edit-mahasiswa/{id}', 'MahasiswaController@edit')->name('edit.mahasiswa');
+Route::post('update-mahasiswa/{id}', 'MahasiswaController@update')->name('update.mahasiswa');
+Route::get('hapus-mahasiswa/{id}', 'MahasiswaController@destroy')->name('hapus.mahasiswa');
+
 
 //routing makul
 Route::get('makul', 'MakulController@index')->name('makul');
